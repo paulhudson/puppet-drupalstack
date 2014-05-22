@@ -2,7 +2,7 @@
 #
  forge "http://forge.puppetlabs.com"
 #
-mod "puppetlabs/puppetlabs-stdlib"
+mod "puppetlabs/stdlib"
 mod "puppetlabs/example42-yum"
 mod "puppetlabs/andyshinn-atomic"
 mod "puppetlabs/example42-puppi"
