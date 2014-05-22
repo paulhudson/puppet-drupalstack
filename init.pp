@@ -5,6 +5,13 @@
 
  include apache::ssl
  
+file { "/var/www/vhosts":
+  ensure => "directory",
+  owner => 'httpd',
+  group => 'httpd',
+  mode => 750,
+}
+
  apache::vhost { 'drupal':
    docroot  => '/var/www/vhosts/drupal',
    docroot_create => true,
