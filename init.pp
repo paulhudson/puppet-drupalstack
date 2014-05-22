@@ -34,7 +34,7 @@ package { 'ImageMagick':
 $phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
 php::module { $phpModules: }
 
-file { [ "/etc/php.d/conf.d", "/etc/php.d/cli/conf.d"]:
+file { [ "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/conf.d"]:
   ensure => "directory",
   owner => 'apache',
   group => 'apache',
