@@ -35,13 +35,6 @@ mkdir -p $PUPPET_DIR
 fi
 #cp /vagrant/puppet/Puppetfile $PUPPET_DIR
 
-if [ "$(gem list -i '^librarian-puppet$')" = "false" ]; then
-gem install librarian-puppet
-cd $PUPPET_DIR && librarian-puppet install --clean
-else
-cd $PUPPET_DIR && librarian-puppet update
-fi
-
 if [ "${FOUND_YUM}" -eq '0' ]; then
 #Install puppet
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
@@ -50,5 +43,13 @@ echo 'added puppet yum repo.'
 #sudo yum install puppet-server
 
 #Puppet Nodes:
-yum  -q -y install puppet
+yum -q -y install puppet
 fi
+
+if [ "$(gem list -i '^librarian-puppet$')" = "false" ]; then
+gem install librarian-puppet
+cd $PUPPET_DIR && librarian-puppet install --clean
+else
+cd $PUPPET_DIR && librarian-puppet update
+fi
+
