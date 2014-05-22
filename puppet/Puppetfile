@@ -3,7 +3,7 @@
  forge "http://forge.puppetlabs.com"
 #
 mod "puppetlabs/stdlib"
-mod "example42yum"
+mod "example42/yum"
 mod "andyshinn/atomic"
 mod "example42/puppi"
 mod "example42/mysql"
