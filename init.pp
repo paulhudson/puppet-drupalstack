@@ -1,4 +1,7 @@
- # PHP
+# Atomic repo
+class { 'atomic': }
+
+# PHP
 class { 'php': }
 
 $phpModules = [ 'imagick', 'xdebug', 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
@@ -17,7 +20,7 @@ php::ini { 'php':
 
  include apache::ssl
  
-file { [ "/var/www/", "/var/www/vhosts" ]:
+file { [ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
   owner => 'httpd',
   group => 'httpd',
