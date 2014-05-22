@@ -33,7 +33,8 @@ fi
 if [ ! -d "$PUPPET_DIR" ]; then
 mkdir -p $PUPPET_DIR
 fi
-cp ../puppet/Puppetfile $PUPPET_DIR
+pwd
+cp puppet/Puppetfile $PUPPET_DIR
 
 if [ "${FOUND_YUM}" -eq '0' ]; then
 #Install puppet
