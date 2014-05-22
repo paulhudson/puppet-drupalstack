@@ -33,7 +33,8 @@ fi
 if [ ! -d "$PUPPET_DIR" ]; then
 mkdir -p $PUPPET_DIR
 fi
-pwd
+
+# cp Puppetfile with puppet librarian definitions
 cp puppet/Puppetfile $PUPPET_DIR
 
 if [ "${FOUND_YUM}" -eq '0' ]; then
