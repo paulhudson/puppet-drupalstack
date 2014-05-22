@@ -5,7 +5,7 @@ class { 'atomic': }
 class { 'php': }
 
 service { 'ImageMagick':
-  ensure => 'running',
+  ensure => running,
 }
 
 $phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
