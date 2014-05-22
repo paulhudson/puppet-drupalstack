@@ -4,7 +4,11 @@ class { 'atomic': }
 # PHP
 class { 'php': }
 
-$phpModules = [ 'ImageMagick', 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
+service { 'ImageMagick':
+  ensure => 'present',
+}
+
+$phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
 php::module { $phpModules: }
 
 php::ini { 'php':
