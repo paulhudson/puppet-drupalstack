@@ -4,17 +4,22 @@ class { 'atomic': }
 # PHP
 class { 'php': }
 
-service { 'ImageMagick':
-  ensure => running,
+package { 'ImageMagick':
+  ensure => 'installed',
 }
 
 $phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
 php::module { $phpModules: }
 
+file { [ "/etc/php.d/conf.d"]:
+  ensure => "directory",
+  owner => 'apache',
+  group => 'apache',
+  mode => 750,
+}
+
 php::ini { 'php':
   value   => ['memory_limit = "256M"'],
-  target  => 'php.ini',
-  service => 'apache',
 }
 
 # Apache
