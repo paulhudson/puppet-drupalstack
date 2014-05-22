@@ -4,7 +4,7 @@ class { 'atomic': }
 # PHP
 class { 'php': }
 
-$phpModules = [ 'imagick', 'xdebug', 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
+$phpModules = [ 'ImageMagick', 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
 php::module { $phpModules: }
 
 php::ini { 'php':
@@ -22,8 +22,8 @@ php::ini { 'php':
  
 file { [ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
-  owner => 'httpd',
-  group => 'httpd',
+  owner => 'apache',
+  group => 'apache',
   mode => 750,
 }
 
