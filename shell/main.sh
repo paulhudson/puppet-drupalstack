@@ -41,11 +41,14 @@ if [ "${FOUND_YUM}" -eq '0' ]; then
 #Install puppet
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 echo 'added puppet yum repo.'
+
+echo 'Installing puppet.'
 #Puppet Master:
 #sudo yum install puppet-server
 
 #Puppet Nodes:
 yum -q -y install puppet
+
 fi
 
 if [ "$(gem list -i '^librarian-puppet$')" = "false" ]; then
