@@ -1,0 +1,18 @@
+# Configuration for librarian-puppet. For example:
+#
+# forge "http://forge.puppetlabs.com"
+#
+mod "puppetlabs/puppetlabs-stdlib"
+mod "puppetlabs/example42-yum"
+mod "puppetlabs/andyshinn-atomic"
+mod "puppetlabs/example42-puppi"
+mod "puppetlabs/example42-mysql"
+mod "puppetlabs/example42-php"
+mod "puppetlabs/rafaelfc-pear"
+mod "puppetlabs/example42-apache"
+#
+# mod "apt",
+# :git => "git://github.com/puppetlabs/puppetlabs-apt.git"
+#
+# mod "stdlib",
+# :git => "git://github.com/puppetlabs/puppetlabs-stdlib.git"
