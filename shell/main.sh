@@ -59,5 +59,4 @@ cd $PUPPET_DIR && librarian-puppet update
 fi
 
 # Run puppet init.pp
-cd ..
-puppet apply init.pp
+puppet apply ~/puppet-drupalstack/init.pp
