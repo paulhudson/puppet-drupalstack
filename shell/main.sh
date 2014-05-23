@@ -68,6 +68,6 @@ puppet apply ~/puppet-drupalstack/init.pp
 cd /var/www/vhosts/drupal.test
 drush dl drupal --drupal-project-rename=drupal
 cd drupal
-drush site-install standard --db-url=mysql://[drupal]:[drupal]@localhost/[drupal] --site-name=Drupal Test
+drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --site-name=Drupal Test -y
 
 
