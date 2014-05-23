@@ -52,8 +52,6 @@ class { 'pear': }
 class { 'mysql': }
 
 # Drush
-class { 'drush': }
-
 
 # Drupal
 include drupal
