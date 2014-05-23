@@ -16,12 +16,12 @@ file { [ "/var/www", "/var/www/vhosts" ]:
   require => Package['httpd'],
 }
 
- apache::vhost { 'drupal':
-   docroot  => '/var/www/vhosts/drupal',
+ apache::vhost { 'drupal.test':
+   docroot  => '/var/www/vhosts/drupal.test',
    docroot_create => true,
    directory_allow_override   => 'All',
    ssl => true,
-   server_name => 'drupal',
+   server_name => 'drupal.test',
 }
 
 # PHP
@@ -55,7 +55,7 @@ class { 'mysql': }
 # Drupal
 class { 'drupal': }
 
-drupal::core { 'drupal':
-  path => '/var/www/vhosts/drupal',
+drupal::core { 'drupal.test':
+  path => '/var/www/vhosts/drupal.test',
   require => Package['php', 'mysql', 'httpd', 'drush'],
 }
