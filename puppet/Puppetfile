@@ -1,7 +1,7 @@
 # Configuration for librarian-puppet. For example:
-#
- forge "http://forge.puppetlabs.com"
-#
+
+forge "http://forge.puppetlabs.com"
+
 mod "puppetlabs/stdlib"
 mod "example42/yum"
 mod "andyshinn/atomic"
@@ -10,9 +10,12 @@ mod "example42/mysql"
 mod "example42/php"
 mod "rafaelfc/pear"
 mod "example42/apache"
-#
+mod "erikwebb/drush"
+mod "erikwebb/drupal"
+
+
 # mod "apt",
 # :git => "git://github.com/puppetlabs/puppetlabs-apt.git"
-#
+
 # mod "stdlib",
 # :git => "git://github.com/puppetlabs/puppetlabs-stdlib.git"
