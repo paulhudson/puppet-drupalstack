@@ -31,7 +31,7 @@ package { 'ImageMagick':
   ensure => 'installed',
 }
 
-$phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcache', 'gd', 'apc']
+$phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcached', 'gd', 'apc']
 php::module { $phpModules: }
 
 file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/conf.d"]:
