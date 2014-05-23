@@ -6,8 +6,6 @@ class { 'apache':
   default_vhost => false,
 }
  
-apache::mod { 'rewrite': }
-
 include apache::ssl
  
 file { [ "/var/www", "/var/www/vhosts" ]:
