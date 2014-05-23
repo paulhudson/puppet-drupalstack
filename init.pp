@@ -6,7 +6,7 @@ class { 'apache':
   default_vhost => false,
 }
  
-include apache::ssl
+ class { 'apache::mod::ssl': }
  
 file { [ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
