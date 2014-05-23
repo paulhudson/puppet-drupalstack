@@ -52,11 +52,14 @@ class { 'pear': }
 class { 'mysql': }
 
 # Drush
+class { 'drush': }
+
 
 # Drupal
-class { 'drupal': }
+include drupal
 
-drupal::core { 'drupal.test':
+drupal::core { '7.21':
+  version => 'latest',
   path => '/var/www/vhosts/drupal.test',
   require => Package['php', 'mysql', 'httpd', 'drush'],
 }
