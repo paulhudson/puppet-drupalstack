@@ -58,3 +58,4 @@ else
 cd $PUPPET_DIR && librarian-puppet update
 fi
 
+puppet apply init.pp
