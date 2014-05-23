@@ -1,30 +1,6 @@
 # Atomic repo
 class { 'atomic': }
 
-# Apache
-class { 'apache': 
-  default_vhost => false,
-}
- 
- class { 'apache::mod::ssl': }
- 
-file { [ "/var/www", "/var/www/vhosts" ]:
-  ensure => "directory",
-  owner => 'apache',
-  group => 'apache',
-  mode => 750,
-  require => Package['httpd'],
-}
-
-apache::vhost { 'drupal.test':
-  port          => '80',
-  docroot       => '/var/www/vhosts/drupal.test',
-  docroot_owner => 'apache',
-  docroot_group => 'apache',
-  options => ['-Indexes','+FollowSymLinks'],
-  override => ['All'],
-}
-
 # PHP
 class { 'php': }
 
@@ -43,6 +19,31 @@ file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/co
 php::ini { 'php':
   value   => ['memory_limit = "256M"'],
   require => Package['php'],
+}
+
+# Apache
+class { 'apache': 
+  default_vhost => false,
+}
+
+class { 'apache::default_mods': } 
+#class { 'apache::mod::ssl': }
+ 
+file { [ "/var/www", "/var/www/vhosts" ]:
+  ensure => "directory",
+  owner => 'apache',
+  group => 'apache',
+  mode => 750,
+  require => Package['httpd'],
+}
+
+apache::vhost { 'drupal.test':
+  port          => '80',
+  docroot       => '/var/www/vhosts/drupal.test',
+  docroot_owner => 'apache',
+  docroot_group => 'apache',
+  options => ['-Indexes','+FollowSymLinks'],
+  override => ['All'],
 }
 
 # Pear
