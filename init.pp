@@ -51,10 +51,10 @@ class { 'pear': }
 class { 'mysql': }
 
 # Drush
-
+class { 'drush': }
 
 # Drupal
-class { 'drupal': 
+drupal::core {
   path => '/var/www/vhosts/drupal',
   url => 'drupal.test',
 }
