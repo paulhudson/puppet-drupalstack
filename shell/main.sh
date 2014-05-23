@@ -35,7 +35,7 @@ mkdir -p $PUPPET_DIR
 fi
 
 # cp Puppetfile with puppet librarian definitions
-cp puppet/Puppetfile $PUPPET_DIR
+cp ~/puppet-drupalstack/puppet/Puppetfile $PUPPET_DIR
 
 if [ "${FOUND_YUM}" -eq '0' ]; then
 #Install puppet
