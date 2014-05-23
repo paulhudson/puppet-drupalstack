@@ -37,20 +37,29 @@ fi
 # cp Puppetfile with puppet librarian definitions
 cp ~/puppet-drupalstack/puppet/Puppetfile $PUPPET_DIR
 
+echo 'Installing puppet.'
+
 if [ "${FOUND_YUM}" -eq '0' ]; then
 #Install puppet
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 echo 'added puppet yum repo.'
 
-echo 'Installing puppet.'
-#Puppet Master:
+# Install Puppet:
 #sudo yum install puppet-server
-
-#Puppet Nodes:
 yum -q -y install puppet
 
+elif [ "${FOUND_APT}" -eq '0' ]; then
+
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+echo 'added puppet apt repo.'
+
+# Install Puppet:
+#sudo apt-get -q -y install puppet-server
+sudo apt-get -q -y install puppet
 fi
 
+echo "Installing librarian-puppet"
 if [ "$(gem list -i '^librarian-puppet$')" = "false" ]; then
 gem install librarian-puppet
 cd $PUPPET_DIR && librarian-puppet install --clean
