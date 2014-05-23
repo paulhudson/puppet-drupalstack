@@ -73,9 +73,9 @@ drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --si
 echo " "
 echo "Your server has been configured to run Drupal and a test site created."
 echo " "
-echo "Login to: http://drupal.test/drupal"
+echo "Login to: http://drupal.test/drupal (ensure drupal.test resolves to server IP)"
 echo ""
 echo "To setup more Drupal sites simply run 'drupal-install' form command line"
 echo ""
 echo "For help, see: drupal-install --help"
-
+echo ""
