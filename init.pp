@@ -13,6 +13,7 @@ file { [ "/var/www", "/var/www/vhosts" ]:
   owner => 'apache',
   group => 'apache',
   mode => 750,
+  require => Package['httpd'],
 }
 
  apache::vhost { 'drupal':
@@ -27,17 +28,20 @@ file { [ "/var/www", "/var/www/vhosts" ]:
 # PHP
 class { 'php': }
 
-package { 'ImageMagick':
+package { ['ImageMagick', 'php-pecl-memcached', 'memcached', 'php-pecl-apc' ]:
   ensure => 'installed',
 }
 
-$phpModules = [ 'curl', 'mysql', 'cli', 'intl', 'mcrypt', 'memcached', 'gd', 'apc']
+
+$phpModules = [ 'mysql', 'cli', 'intl', 'mcrypt', 'gd']
 php::module { $phpModules: }
 
 file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/conf.d"]:
   ensure => "directory",
+  require => Package['php'],
 }
 
 php::ini { 'php':
   value   => ['memory_limit = "256M"'],
+  require => Package['php'],
 }
