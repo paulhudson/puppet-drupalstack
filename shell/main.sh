@@ -61,7 +61,13 @@ fi
 # Run puppet init.pp
 puppet apply ~/puppet-drupalstack/init.pp
 
+#cd /var/www/vhosts/drupal.test
+#drush core-quick-drupal -y
+#chown -R apache /var/www/vhosts/drupal.test/*
+
 cd /var/www/vhosts/drupal.test
-drush core-quick-drupal -y
+drush dl drupal --drupal-project-rename=drupal
+cd drupal
+drush site-install standard --db-url=mysql://[drupal]:[drupal]@localhost/[drupal] --site-name=Drupal Test
 
 

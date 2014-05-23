@@ -51,6 +51,10 @@ class { 'pear': }
 # mysql
 class { 'mysql': }
 
+mysql::grant { 'drupal_mysql_user': 
+  mysql_user => 'drupal',
+}
+
 # Drush
 
 # Drupal
