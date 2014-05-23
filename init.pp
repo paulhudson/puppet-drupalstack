@@ -2,11 +2,13 @@
 class { 'atomic': }
 
 # Apache
- class { 'apache':}
+class { 'apache': 
+  docroot => '/var/www/vhosts',
+}
  
- apache::module { 'rewrite': }
+apache::module { 'rewrite': }
 
- include apache::ssl
+include apache::ssl
  
 file { [ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
@@ -18,7 +20,7 @@ file { [ "/var/www", "/var/www/vhosts" ]:
 
 apache::vhost { 'drupal.test':
   port          => '80',
-  docroot       => '/var/www/drupal.test',
+  docroot       => '/var/www/vhosts/drupal.test',
   docroot_owner => 'apache',
   docroot_group => 'apache',
   ssl => true,
