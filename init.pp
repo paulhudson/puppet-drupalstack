@@ -24,14 +24,12 @@ file { [ "/var/www", "/var/www/vhosts" ]:
    server_name => 'drupal',
 }
 
-
 # PHP
 class { 'php': }
 
 package { ['ImageMagick', 'php-pecl-memcached', 'memcached', 'php-pecl-apc' ]:
   ensure => 'installed',
 }
-
 
 $phpModules = [ 'mysql', 'cli', 'intl', 'mcrypt', 'gd']
 php::module { $phpModules: }
@@ -44,4 +42,21 @@ file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/co
 php::ini { 'php':
   value   => ['memory_limit = "256M"'],
   require => Package['php'],
+}
+
+# Pear
+class { 'pear': }
+
+# mysql
+class { 'mysql': }
+
+# Drush
+
+
+# Drupal
+class { 'drupal': 
+  path => '/var/www/vhosts/drupal',
+  url => 'drupal.test',
+}
+
 }
