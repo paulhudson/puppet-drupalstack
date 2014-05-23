@@ -52,7 +52,10 @@ class { 'pear': }
 class { 'mysql': }
 
 mysql::grant { 'drupal_mysql_user': 
+  mysql_db => '*',
   mysql_user => 'drupal',
+  mysql_password => 'drupal',
+  mysql_create_db => false,
 }
 
 # Drush
