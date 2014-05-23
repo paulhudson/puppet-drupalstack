@@ -3,7 +3,7 @@ class { 'atomic': }
 
 # Apache
 class { 'apache': 
-  docroot => '/var/www/vhosts',
+  default_vhost => false,
 }
  
 apache::module { 'rewrite': }
