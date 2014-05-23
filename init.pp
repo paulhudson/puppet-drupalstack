@@ -16,12 +16,14 @@ file { [ "/var/www", "/var/www/vhosts" ]:
   require => Package['httpd'],
 }
 
- apache::vhost { 'drupal.test':
-   docroot  => '/var/www/vhosts/drupal.test',
-   docroot_create => true,
-   directory_allow_override   => 'All',
-   ssl => true,
-   server_name => 'drupal.test',
+apache::vhost { 'drupal.test':
+  port          => '80',
+  docroot       => '/var/www/drupal.test',
+  docroot_owner => 'apache',
+  docroot_group => 'apache',
+  ssl => true,
+  options => ['-Indexes','+FollowSymLinks'],
+  override => ['All'],
 }
 
 # PHP

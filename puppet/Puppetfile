@@ -9,7 +9,7 @@ mod "example42/puppi"
 mod "example42/mysql"
 mod "example42/php"
 mod "rafaelfc/pear"
-mod "example42/apache"
+mod "puppetlabs/apache"
 mod "erikwebb/drush"
 mod "erikwebb/drupal"
 
