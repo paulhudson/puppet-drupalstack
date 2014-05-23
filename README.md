@@ -3,8 +3,7 @@ puppet-drupalstack
 
 **Clone repo**
 
-git clone https://github.com/paulhudson/puppet-drupalstack.git
-cd puppet-drupalstack
+git clone https://github.com/paulhudson/puppet-drupalstack.git && ~/puppet-drupalstack/shell/main.sh
 
 **Install dependancies and puppet librarian**
 

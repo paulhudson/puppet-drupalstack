@@ -61,7 +61,9 @@ mysql::grant { 'drupal_mysql_user':
 }
 
 # Drush
+class { 'drush': }
 
+]
 # Drupal
 /*
 include drupal
