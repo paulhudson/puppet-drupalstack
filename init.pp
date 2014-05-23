@@ -56,7 +56,6 @@ class { 'drush': }
 # Drupal
 class { 'drupal': }
 
-drupal::core {
+drupal::core { 'examplesite':
   path => '/var/www/vhosts/drupal',
-  url => 'drupal.test',
 }
