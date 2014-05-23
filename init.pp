@@ -21,7 +21,6 @@ apache::vhost { 'drupal.test':
   docroot       => '/var/www/vhosts/drupal.test',
   docroot_owner => 'apache',
   docroot_group => 'apache',
-  ssl => true,
   options => ['-Indexes','+FollowSymLinks'],
   override => ['All'],
 }
