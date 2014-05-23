@@ -58,3 +58,4 @@ class { 'drupal':
   path => '/var/www/vhosts/drupal',
   url => 'drupal.test',
 }
+
