@@ -55,7 +55,7 @@ class { 'mysql': }
 # Drupal
 class { 'drupal': }
 
-drupal::core { 'examplesite':
+drupal::core { 'drupal':
   path => '/var/www/vhosts/drupal',
-  require => Package['php', 'mysql', 'apache'],
+  require => Package['php', 'mysql', 'httpd', 'drush'],
 }
