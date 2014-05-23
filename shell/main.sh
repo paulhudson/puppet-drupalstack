@@ -60,3 +60,8 @@ fi
 
 # Run puppet init.pp
 puppet apply ~/puppet-drupalstack/init.pp
+
+cd /var/www/vhosts/drupal.test
+drush site-install standard
+
+

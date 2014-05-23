@@ -54,6 +54,7 @@ class { 'mysql': }
 # Drush
 
 # Drupal
+/*
 include drupal
 
 drupal::core { '7.21':
@@ -61,3 +62,4 @@ drupal::core { '7.21':
   path => '/var/www/vhosts/drupal.test',
   require => Package['php', 'mysql', 'httpd', 'drush'],
 }
+*/
