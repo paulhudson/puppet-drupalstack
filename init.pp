@@ -26,8 +26,9 @@ class { 'apache':
   default_vhost => false,
 }
 
-class { 'apache::default_mods': } 
-#class { 'apache::mod::ssl': }
+#class { 'apache::default_mods': } 
+class { 'apache::mod::ssl': }
+class { 'apache::mod::php': }
  
 file { [ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
