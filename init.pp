@@ -32,7 +32,7 @@ package { ['ImageMagick', 'php-pecl-memcached', 'memcached', 'php-pecl-apc' ]:
   ensure => 'installed',
 }
 
-$phpModules = [ 'mysql', 'cli', 'intl', 'mcrypt', 'gd', 'dom']
+$phpModules = [ 'mysql', 'cli', 'intl', 'mcrypt', 'gd', 'xml']
 php::module { $phpModules: }
 
 file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/conf.d"]:
