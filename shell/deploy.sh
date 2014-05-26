@@ -76,6 +76,8 @@ drush dl drupal --drupal-project-rename=drupal
 chown -R apache:apache ./drupal && cd drupal
 drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --site-name=Drupal Test -y
 
+FACTER_sitename=foosites puppet apply site.pp
+
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
 
 # Display some help
