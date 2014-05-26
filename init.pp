@@ -46,8 +46,8 @@ $apache = $operatingsystem ? {
      
 file {[ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
-  owner => $apache_user',
-  group => $apache_user',
+  owner => $apache_user,
+  group => $apache_user,
   mode => 750,
   require => Package[$apache],
 }
@@ -55,8 +55,8 @@ file {[ "/var/www", "/var/www/vhosts" ]:
 apache::vhost { 'drupal.test':
   port          => '80',
   docroot       => '/var/www/vhosts/drupal.test',
-  docroot_owner => $apache_user',
-  docroot_group => $apache_user',
+  docroot_owner => $apache_user,
+  docroot_group => $apache_user,
   options => ['-Indexes','+FollowSymLinks'],
   override => ['All'],
 }
