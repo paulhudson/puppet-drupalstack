@@ -29,20 +29,34 @@ class { 'apache':
 #class { 'apache::default_mods': } 
 class { 'apache::mod::ssl': }
 class { 'apache::mod::php': }
- 
-file { [ "/var/www", "/var/www/vhosts" ]:
+
+$apache_user = $operatingsystem ? {
+  centos                => 'apache',
+  redhat                => 'apache',
+  /(?i)(ubuntu|debian)/ => 'www-data',
+  default               => 'apache',
+}
+
+$apache = $operatingsystem ? {
+  centos                => 'httpd',
+  redhat                => 'httpd',
+  /(?i)(ubuntu|debian)/ => 'apache2',
+  default               => undef,
+}
+     
+file {[ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
-  owner => 'apache',
-  group => 'apache',
+  owner => $apache_user',
+  group => $apache_user',
   mode => 750,
-  require => Package['httpd'],
+  require => Package[$apache],
 }
 
 apache::vhost { 'drupal.test':
   port          => '80',
   docroot       => '/var/www/vhosts/drupal.test',
-  docroot_owner => 'apache',
-  docroot_group => 'apache',
+  docroot_owner => $apache_user',
+  docroot_group => $apache_user',
   options => ['-Indexes','+FollowSymLinks'],
   override => ['All'],
 }
