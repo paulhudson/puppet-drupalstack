@@ -26,12 +26,6 @@ fi
 
 FACTER_sitename=$aliasflag puppet apply site.pp
 
-# Install test Drupal site
-cd /var/www/vhosts/$aliasflag
-drush dl drupal --drupal-project-rename=$aliasflag
-chown -R apache:apache ./$aliasflag && mv -r ./$aliasflag ./
-drush site-install standard --db-url=mysql://$aliasflag:$aliasflag@localhost/$aliasflag --site-name=Drupal Test -y
-
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
 
