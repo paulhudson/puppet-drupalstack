@@ -19,10 +19,10 @@ echo "-a                        alias hostname for the new site, e.g. drupal.tes
 exit 0
 fi
 
-if [ $aliasflag == '' ]
-then
-echo "alias -a must be supplied, see -h for help"
-exit 0
+
+if [ $aliasflag == '' ]; then
+  echo "alias -a must be supplied, see -h for help"
+  exit 0
 fi
 
 FACTER_sitename=$aliasflag puppet apply site.pp

@@ -37,7 +37,7 @@ mysql::grant { 'drupal_mysql_user':
 
 
 exec { "ApacheUserChange" :
-        command => "cd /var/www/vhosts/$aliasflag && drush dl drupal --drupal-project-rename=$aliasflag && chown -R apache:apache ./$aliasflag && mv -r ./$aliasflag ./ && drush site-install standard --db-url=mysql://$aliasflag:$aliasflag@localhost/$aliasflag --site-name=Drupal Test -y",
+        command => "cd /var/www/vhosts/$::sitename && drush dl drupal --drupal-project-rename=$::sitename && chown -R apache:apache ./$::sitename && mv ./$::sitename ./ && drush site-install standard --db-url=mysql://$::sitename:$::sitename@localhost/$::sitename --site-name=$::sitename -y",
         onlyif => "/var/www/vhosts/$::sitename",
         notify => Service[$apache],
 }
