@@ -12,6 +12,11 @@ $apache = $operatingsystem ? {
   default               => undef,
 }
 
+# Apache
+class { 'apache': 
+  default_vhost => false,
+}
+
 apache::vhost { 'drupal_site':
   port          => '80',
   docroot       => "/var/www/vhosts/$::sitename",
