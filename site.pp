@@ -13,11 +13,9 @@ $apache = $operatingsystem ? {
 }
 
 # Apache
-class { 'apache': 
-  default_vhost => false,
-}
+class { 'apache': }
 
-apache::vhost { 'drupal_site':
+apache::vhost { $::sitename:
   port          => '80',
   docroot       => "/var/www/vhosts/$::sitename",
   docroot_owner => $apache_user,
@@ -26,7 +24,7 @@ apache::vhost { 'drupal_site':
   override => ['All'],
 }
 
-mysql::grant { 'drupal_mysql_user': 
+mysql::grant { $::sitename: 
   mysql_db => '*',
   mysql_user => $::sitename,
   mysql_password => $::sitename,
