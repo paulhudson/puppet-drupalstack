@@ -71,11 +71,11 @@ fi
 puppet apply ~/puppet-drupalstack/init.pp
 
 # Install test Drupal site
-cd /var/www/vhosts/drupal.test
-drush dl drupal --drupal-project-rename=drupal
-chown -R apache:apache ./drupal && cd drupal
-drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --site-name=Drupal Test -y
-
+#cd /var/www/vhosts/drupal.test
+#drush dl drupal --drupal-project-rename=drupal
+#chown -R apache:apache ./drupal && cd drupal
+#drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --site-name=Drupal Test -y
+vhost_deploy.sh -a drupal.test
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
 
@@ -83,7 +83,7 @@ drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --si
 echo " "
 echo "Your server has been configured to run Drupal."
 echo " "
-echo "To setup more Drupal sites simply run 'vhost_deploy.sh' form command line"
+echo "To setup more Drupal sites simply run 'vhost_deploy.sh -a mysite.com' form command line"
 echo ""
 echo "For help, see: vhost_deploy.sh --help"
 echo ""
