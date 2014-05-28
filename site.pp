@@ -24,24 +24,12 @@ apache::vhost { $::sitename:
   override => ['All'],
 }
 
+# Generate a mysql password and create DB user
+
+
 mysql::grant { $::sitename: 
   mysql_db => '*',
   mysql_user => $::sitename,
-  mysql_password => $::sitename,
+  mysql_password => $::db_pass,
   mysql_create_db => false,
 }
-
-# Install test Drupal site
-# This isn't really what puppets for but I want to abstract Drush for novice users
-#cd /var/www/vhosts/$aliasflag
-#drush dl drupal --drupal-project-rename=$aliasflag
-#chown -R apache:apache ./$aliasflag && mv -r ./$aliasflag ./
-#drush site-install standard --db-url=mysql://$aliasflag:$aliasflag@localhost/$aliasflag --site-name=Drupal Test -y
-
-
-#exec { "ApacheUserChange" :
-#        command => "cd /var/www/vhosts/$::sitename && drush dl drupal --drupal-project-rename=$::sitename && chown -R $apache_user:$apache_user ./$::sitename && mv ./$::sitename ./ && drush site-install standard --db-url=mysql://$::sitename:$::sitename@localhost/$::sitename --site-name=$::sitename -y",
-#        onlyif => "/var/www/vhosts/$::sitename",
-#        notify => Service[$apache],
-#}
-        

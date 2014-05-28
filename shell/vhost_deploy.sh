@@ -25,12 +25,14 @@ if [ $aliasflag == '' ]; then
   exit 0
 fi
 
-FACTER_sitename=$aliasflag puppet apply site.pp
+db_pass = generate('/bin/sh', '-c', "mkpasswd | tr -d '\n'");
+
+FACTER_sitename=$aliasflag FACTER_db_pass=$db_pass puppet apply site.pp
 
 cd /var/www/vhosts/$aliasflag
 drush dl drupal --drupal-project-rename=$aliasflag
 chown -R apache:apache ./$aliasflag && mv ./$aliasflag/* ./ && rm ./$aliasflag
-drush site-install standard --db-url=mysql://$aliasflag:$aliasflag@localhost $aliasflag --site-name=Drupal Test -y
+drush site-install standard --db-url=mysql://$aliasflag:$db_pass@localhost $aliasflag --site-name=$aliasflag -y
 
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
@@ -41,7 +43,7 @@ echo "Your server has been configured to run Drupal and a test site created."
 echo " "
 echo "Login to: http://$aliasflag (ensure $aliasflag resolves to server IP)"
 echo ""
-echo "To setup more Drupal sites simply run 'drupal-install' form command line"
+echo "To setup more Drupal sites simply run 'vhost_deploy.sh' form command line"
 echo ""
 echo "For help, see: vhost-deploy.sh --help"
 echo ""

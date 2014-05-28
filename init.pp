@@ -52,14 +52,14 @@ file {[ "/var/www", "/var/www/vhosts" ]:
   require => Package[$apache],
 }
 
-apache::vhost { 'drupal.test':
-  port          => '80',
-  docroot       => '/var/www/vhosts/drupal.test',
-  docroot_owner => $apache_user,
-  docroot_group => $apache_user,
-  options => ['-Indexes','+FollowSymLinks'],
-  override => ['All'],
-}
+#apache::vhost { 'drupal.test':
+#  port          => '80',
+#  docroot       => '/var/www/vhosts/drupal.test',
+#  docroot_owner => $apache_user,
+#  docroot_group => $apache_user,
+#  options => ['-Indexes','+FollowSymLinks'],
+#  override => ['All'],
+#}
 
 # Pear
 class { 'pear': }
@@ -67,12 +67,12 @@ class { 'pear': }
 # mysql
 class { 'mysql': }
 
-mysql::grant { 'drupal_mysql_user': 
-  mysql_db => '*',
-  mysql_user => 'drupal',
-  mysql_password => 'drupal',
-  mysql_create_db => false,
-}
+#mysql::grant { 'drupal_mysql_user': 
+#  mysql_db => '*',
+#  mysql_user => 'drupal',
+#  mysql_password => 'drupal',
+#  mysql_create_db => false,
+#}
 
 # Drush
 class { 'drush': }
