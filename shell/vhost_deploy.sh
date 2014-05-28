@@ -2,7 +2,7 @@ aliasflag=''
 helpflag='false'
 distribution=''
 
-while getopts 'a:hd' flag; do
+while getopts 'a:hd:' flag; do
 case "${flag}" in
 a) aliasflag="${OPTARG}" ;;
 d) distribution="${OPTARG}" ;;
