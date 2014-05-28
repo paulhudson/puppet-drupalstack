@@ -25,7 +25,7 @@ if [ $aliasflag == '' ]; then
   exit 0
 fi
 
-db_pass = mkpasswd
+db_pass=mkpasswd
 
 FACTER_sitename=$aliasflag FACTER_db_pass=$db_pass puppet apply site.pp
 
