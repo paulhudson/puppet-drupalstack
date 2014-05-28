@@ -27,7 +27,7 @@ apache::vhost { $::sitename:
 # Generate a mysql password and create DB user
 
 
-mysql::grant { $::sitename: 
-  mysql_user => $::sitename,
+mysql::grant { $::db_user: 
+  mysql_user => $::db_user,
   mysql_password => $::db_pass,
 }

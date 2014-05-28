@@ -26,16 +26,16 @@ if [ $aliasflag == '' ]; then
 fi
 
 db_pass=$(date +”%N” | md5sum | base64 | head -c 16)
+db_user=$(echo $aliasflag | tr -dc _A-Z-a-z-0-9 | head -c6 ;)
 
-echo "db pass: "
-echo $db_pass
+echo "Generated mysql password: $db_pass for user $db_user"
 
-FACTER_sitename=$aliasflag FACTER_db_pass=$db_pass puppet apply site.pp
+FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppet apply site.pp
 
 cd /var/www/vhosts/$aliasflag
-drush dl drupal --drupal-project-rename=$aliasflag
-chown -R apache:apache ./$aliasflag && mv ./$aliasflag/* ./ && rm ./$aliasflag
-drush site-install standard --db-url=mysql://$aliasflag:$db_pass@localhost/$aliasflag --site-name=$aliasflag -y
+drush dl drupal --drupal-project-rename=$db_user
+chown -R apache:apache ./$db_user && mv ./$db_user/* ./ && rm -rf ./$db_user
+drush site-install standard --db-url=mysql://$db_user:$db_pass@localhost/$db_user --site-name=$db_user -y
 
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
