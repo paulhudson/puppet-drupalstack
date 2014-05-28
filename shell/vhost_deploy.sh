@@ -25,7 +25,7 @@ if [ $aliasflag == '' ]; then
   exit 0
 fi
 
-db_pass=${date +%s | sha256sum | base64 | head -c 16 ; echo}
+db_pass=${date +%s | sha256sum | base64 | head -c 16 ;}
 
 echo "db pass: "
 echo $db_pass
