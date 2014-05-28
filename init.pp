@@ -106,8 +106,8 @@ augeas { 'sudoapache':
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
         "set Defaults[type=':$apache_user']/type :$apache_user",
-        "set Defaults[type=':$apache_user']/requiretty/negate \"\""],
-        "set Defaults[type=':$apache_user']/visiblepw/negate \"\""],        
+        "set Defaults[type=':$apache_user']/requiretty/negate \"\"",
+        "set Defaults[type=':$apache_user']/visiblepw/negate \"\"",        
         
     ]
 }
