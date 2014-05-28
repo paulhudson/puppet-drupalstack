@@ -28,8 +28,6 @@ fi
 db_pass=$(date +”%N” | md5sum | base64 | head -c 16)
 db_user=$(echo $aliasflag | tr -dc _A-Z-a-z-0-9 | head -c6 ;)
 
-echo "Generated mysql password: $db_pass for user $db_user"
-
 FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppet apply site.pp
 
 cd /var/www/vhosts/$aliasflag
@@ -42,9 +40,9 @@ drush site-install standard --db-url=mysql://$db_user:$db_pass@localhost/$db_use
 
 # Display some help
 echo " "
-echo "Your server has been configured to run Drupal and a test site created."
-echo " "
-echo "Login to: http://$aliasflag (ensure $aliasflag resolves to server IP)"
+echo "Login at: http://$aliasflag (ensure $aliasflag resolves to server IP)"
+echo ""
+echo "Make a note of your MySQL password: $db_pass for user $db_user"
 echo ""
 echo "To setup more Drupal sites simply run 'vhost_deploy.sh' form command line"
 echo ""
