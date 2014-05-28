@@ -105,6 +105,7 @@ augeas { 'sudoapache':
         'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/shell/vhost_deploy.sh',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
+        'set Defaults[type=":apache"]/type :apache',
         'set Defaults[type=":apache"]/requiretty/negate !',
         'set Defaults[type="":apache"]/visiblepw/negate !',
         
