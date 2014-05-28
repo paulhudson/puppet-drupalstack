@@ -25,7 +25,10 @@ if [ $aliasflag == '' ]; then
   exit 0
 fi
 
-db_pass=mkpasswd
+db_pass=date +%s | sha256sum | base64 | head -c 16 ;
+
+echo "db pass: "
+echo $db_pass
 
 FACTER_sitename=$aliasflag FACTER_db_pass=$db_pass puppet apply site.pp
 
