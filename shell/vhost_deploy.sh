@@ -40,7 +40,7 @@ FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppe
 
 cd /var/www/vhosts/$aliasflag
 drush dl $distribution --drupal-project-rename=$db_user
-chown -R apache:apache ./$db_user && mv ./$db_user/* ./ mv ./$db_user/.* ./ && rm -rf ./$db_user
+chown -R apache:apache ./$db_user && mv ./$db_user/* ./ && mv ./$db_user/.* ./ && rm -rf ./$db_user
 drush site-install $distribution --db-url=mysql://$db_user:$db_pass@localhost/$db_user --site-name=$aliasflag -y
 
 
