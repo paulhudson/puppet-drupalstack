@@ -1,6 +1,6 @@
 aliasflag=''
 helpflag='false'
-distribution='drupal'
+distribution=''
 
 while getopts 'a:h:d' flag; do
 case "${flag}" in
@@ -27,6 +27,11 @@ if [ $aliasflag == '' ]; then
   echo "alias -a must be supplied, see -h for help"
   exit 0
 fi
+
+if [ $distribution == '' ]; then
+  $distribution='drupal'
+fi
+
 
 db_pass=$(date +”%N” | md5sum | base64 | head -c 16)
 db_user=$(echo $aliasflag | tr -dc _A-Z-a-z-0-9 | head -c6 ;)
