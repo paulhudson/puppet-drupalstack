@@ -107,7 +107,7 @@ augeas { 'sudoapache':
         # Don't require tty
         'set Defaults[type=":apache"]/type :apache',
         'set Defaults[type=":apache"]/requiretty/negate !',
-        'set Defaults[type="":apache"]/visiblepw/negate !',
+        'set Defaults[type=":apache"]/visiblepw/negate !',
         
     ]
 }
