@@ -17,5 +17,5 @@ mod "erikwebb/drush"
 # mod "apt",
 # :git => "git://github.com/puppetlabs/puppetlabs-apt.git"
 
-mod "erikwebb/drupal",
- :git => "git://github.com/paulhudson/erikwebb-drupal"
+#mod "erikwebb/drupal",
+# :git => "git://github.com/paulhudson/erikwebb-drupal"

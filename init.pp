@@ -24,11 +24,12 @@ php::ini { 'php':
 # Apache
 class { 'apache': 
   default_vhost => false,
-  default_mods  => true,
 }
 
-class { 'apache::mod::php': }
-class { 'apache::mod::ssl': }
+#class { 'apache::mod::php': }
+#class { 'apache::mod::ssl': }
+include apache::mod::php
+include apache::mod::ssl
 
 $apache_user = $operatingsystem ? {
   centos                => 'apache',
