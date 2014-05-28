@@ -123,13 +123,13 @@ file { "/var/www/html/index.php":
     mode   => 440,
     owner  => apache,
     group  => apache,
-    source => "puppet:///files/index.php",
+    source => "puppet:///files/drupal-install/index.php",
 }
 file { "/var/www/html/global.css":
     mode   => 440,
     owner  => apache,
     group  => apache,
-    source => "puppet:///files/global.css",
+    source => "puppet:///files/drupal-install/global.css",
 }
 
 # Drupal
