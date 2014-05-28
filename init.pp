@@ -17,18 +17,18 @@ file { [ "/etc/php.d", "/etc/php.d/conf.d", "/etc/php.d/cli", "/etc/php.d/cli/co
 }
 
 php::ini { 'php':
-  value   => ['memory_limit = "256M"'],
+  value   => ['memory_limit = 256M'],
   require => Package['php'],
 }
 
 # Apache
 class { 'apache': 
   default_vhost => false,
+  default_mods  => true,
 }
 
-#class { 'apache::default_mods': } 
-class { 'apache::mod::ssl': }
 class { 'apache::mod::php': }
+class { 'apache::mod::ssl': }
 
 $apache_user = $operatingsystem ? {
   centos                => 'apache',

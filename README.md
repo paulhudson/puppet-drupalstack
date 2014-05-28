@@ -22,14 +22,15 @@ You can quickly create a new apache vhost, mysql database and Drupal install wit
 
 To create a new Drupal site at mysite.tld simply pass that hostname as the -a flag:
 
-$ **cd ~/puppet-drupalstack/shell**
+$ **cd ~/puppet-drupalstack**
 
-$ **vhost_deploy.sh -a mysite.tld**
+$ **shell/vhost_deploy.sh -a mysite.tld**
 
-see: $ **vhost_deploy.sh --help**
+see: $ **shell/vhost_deploy.sh --help**
 
 ###Manual###
 
+$ **cd ~/puppet-drupalstack**
 
 Install dependancies and puppet librarian:
 
