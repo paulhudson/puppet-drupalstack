@@ -6,7 +6,7 @@ puppet-drupalstack
 
 Clone repo and puppet deploy:
 
-$ **git clone https://github.com/paulhudson/puppet-drupalstack.git && ~/puppet-drupalstack/shell/deploy.sh**
+$ **git clone https://github.com/paulhudson/puppet-drupalstack.git && ~/puppet-drupalstack/lib/deploy.sh**
 
 This will:
 
@@ -18,15 +18,18 @@ This will:
 
 ###Install More vhosts and Drupal sites###
 
-You can quickly create a new apache vhost, mysql database and Drupal install with the shell/vhost_deploy.sh script.
+You can quickly create a new apache vhost, mysql database and Drupal install with the lib/vhost_deploy.sh script.
 
 To create a new Drupal site at mysite.tld simply pass that hostname as the -a flag:
 
 $ **cd ~/puppet-drupalstack**
 
-$ **shell/vhost_deploy.sh -a mysite.tld**
+$ **lib/vhost_deploy.sh -a mysite.tld**
 
-see: $ **shell/vhost_deploy.sh --help**
+You can also choose to install a Drupal distribution:
+$ **lib/vhost_deploy.sh -a drupaul.co.uk -d commerce_kickstart**
+
+see: $ **lib/vhost_deploy.sh --help**
 
 ###Manual###
 
@@ -34,7 +37,7 @@ $ **cd ~/puppet-drupalstack**
 
 Install dependancies and puppet librarian:
 
-$ **shell/deploy.sh**
+$ **lib/deploy.sh**
 
 Apply puppet manifest:
 
