@@ -14,6 +14,8 @@ $apache = $operatingsystem ? {
 
 # Apache
 class { 'apache': }
+class {'apache::mod::ssl': }
+class {'apache::mod::php': }
 
 apache::vhost { $::sitename:
   port          => '80',

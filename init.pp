@@ -26,17 +26,20 @@ class { 'apache':
   #default_vhost => false,
 }
 
-#class { 'apache::mod::php': }
+class { 'apache::mod::php': }
 #class { 'apache::mod::ssl': }
 #include 'apache::mod::php'
 #include 'apache::mod::ssl'
 #class {'::apache::mod::php': }
 #class {'::apache::mod::ssl': }
 #apache::mod { 'php': }
-apache::mod { 'ssl': }
-class {'apache::mod::php':
-  path         => "${::apache::params::lib_path}/libphp5.so",
-}
+#apache::mod { 'ssl': }
+#class {'apache::mod::php':
+#  path         => "${::apache::params::lib_path}/libphp5.so",
+#}
+class {'apache::mod::ssl': }
+class {'apache::mod::php': }
+
 
 
 $apache_user = $operatingsystem ? {
