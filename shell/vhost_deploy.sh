@@ -35,7 +35,7 @@ FACTER_sitename=$aliasflag FACTER_db_pass=$db_pass puppet apply site.pp
 cd /var/www/vhosts/$aliasflag
 drush dl drupal --drupal-project-rename=$aliasflag
 chown -R apache:apache ./$aliasflag && mv ./$aliasflag/* ./ && rm ./$aliasflag
-drush site-install standard --db-url=mysql://$aliasflag:$db_pass@localhost $aliasflag --site-name=$aliasflag -y
+drush site-install standard --db-url=mysql://$aliasflag:$db_pass@localhost/$aliasflag --site-name=$aliasflag -y
 
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
