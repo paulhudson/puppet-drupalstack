@@ -75,7 +75,7 @@ puppet apply ~/puppet-drupalstack/init.pp
 #drush dl drupal --drupal-project-rename=drupal
 #chown -R apache:apache ./drupal && cd drupal
 #drush site-install standard --db-url=mysql://drupal:drupal@localhost/drupal --site-name=Drupal Test -y
-vhost_deploy.sh -a drupal.test
+#vhost_deploy.sh -a drupal.test
 
 # set PATH or bash_profile alias, etc for vhosts/drupal installer sh
 
