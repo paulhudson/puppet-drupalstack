@@ -32,8 +32,12 @@ class { 'apache':
 #include 'apache::mod::ssl'
 #class {'::apache::mod::php': }
 #class {'::apache::mod::ssl': }
-apache::mod { 'php': }
+#apache::mod { 'php': }
 apache::mod { 'ssl': }
+class {'apache::mod::php':
+  path         => "${::apache::params::lib_path}/libphp5.so",
+}
+
 
 $apache_user = $operatingsystem ? {
   centos                => 'apache',
