@@ -89,6 +89,23 @@ class { 'mysql': }
 # Drush
 class { 'drush': }
 
+# Sudoers
+#Install sudo package
+package { 'sudo':
+  ensure => installed, # ensure sudo package installed
+}
+
+# Allow users belonging apache group to use sudo
+augeas { 'sudoapache':
+    context => '/files/etc/sudoers', # target file is /etc/sudoers
+    changes => [
+        # allow wheel users to use sudo
+        'set spec[user = "%apache"]/user %apache',
+        'set spec[user = "%apache"]/host_group/host ALL',
+        'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/shell/vhost_deploy.sh',
+        'set spec[user = "%apache"]/host_group/command/runas_user root',
+    ]
+}
 # Drupal
 /*
 include drupal
