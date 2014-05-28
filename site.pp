@@ -28,8 +28,6 @@ apache::vhost { $::sitename:
 
 
 mysql::grant { $::sitename: 
-  mysql_db => '*',
   mysql_user => $::sitename,
   mysql_password => $::db_pass,
-  mysql_create_db => false,
 }
