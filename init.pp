@@ -102,7 +102,7 @@ augeas { 'sudoapache':
         # allow wheel users to use sudo
         'set spec[user = "%apache"]/user %apache',
         'set spec[user = "%apache"]/host_group/host ALL',
-        'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/shell/vhost_deploy.sh',
+        'set spec[user = "%apache"]/host_group/command NOPASSWD:/root/puppet-drupalstack/shell/vhost_deploy.sh',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
         "set Defaults[type=':$apache_user']/type :$apache_user",
