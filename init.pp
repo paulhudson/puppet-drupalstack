@@ -26,7 +26,7 @@ class { 'apache':
   #default_vhost => false,
 }
 
-class { 'apache::mod::php': }
+#class { 'apache::mod::php': }
 #class { 'apache::mod::ssl': }
 #include 'apache::mod::php'
 #include 'apache::mod::ssl'
