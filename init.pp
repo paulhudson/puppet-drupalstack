@@ -28,8 +28,10 @@ class { 'apache':
 
 #class { 'apache::mod::php': }
 #class { 'apache::mod::ssl': }
-include 'apache::mod::php'
-include 'apache::mod::ssl'
+#include 'apache::mod::php'
+#include 'apache::mod::ssl'
+class {'::apache::mod::php': }
+class {'::apache::mod::ssl': }
 
 $apache_user = $operatingsystem ? {
   centos                => 'apache',
