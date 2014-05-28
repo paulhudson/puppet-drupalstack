@@ -23,7 +23,7 @@ php::ini { 'php':
 
 # Apache
 class { 'apache': 
-  default_vhost => false,
+  #default_vhost => false,
 }
 
 #class { 'apache::mod::php': }
