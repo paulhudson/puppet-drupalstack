@@ -118,6 +118,19 @@ file { "/root/puppet-drupalstack/lib/vhost_deploy.sh":
   require => User["$apache_user"]
 }
 
+# vhost_deploy interfact
+file { "/var/www/html/index.php":
+    mode   => 440,
+    owner  => apache,
+    group  => apache,
+    source => "puppet:///files/index.php",
+}
+file { "/var/www/html/global.css":
+    mode   => 440,
+    owner  => apache,
+    group  => apache,
+    source => "puppet:///files/global.css",
+}
 
 # Drupal
 /*
