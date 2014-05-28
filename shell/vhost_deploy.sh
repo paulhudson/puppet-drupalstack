@@ -2,7 +2,7 @@ aliasflag=''
 helpflag='false'
 distribution=''
 
-while getopts 'a:h:d' flag; do
+while getopts 'a:hd' flag; do
 case "${flag}" in
 a) aliasflag="${OPTARG}" ;;
 d) distribution="${OPTARG}" ;;
@@ -27,6 +27,8 @@ if [ $aliasflag == '' ]; then
   echo "alias -a must be supplied, see -h for help"
   exit 0
 fi
+
+echo "distribution: $distribution"
 
 if [ $distribution == '' ]; then
   $distribution='drupal'
