@@ -113,8 +113,8 @@
 
         $distribution = escapeshellarg($_GET['exclude_paths']);
         #$command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
-        $command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2> /dev/null &");
-        $output = shell_exec($command);
+        $command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution");
+        $output = shell_exec($command ." > /dev/null 2> /dev/null &");
         #exec($command);
 
 
