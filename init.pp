@@ -111,7 +111,7 @@ augeas { 'sudoapache':
         #'set Defaults[type=":$apache_user"]/visiblepw/negate ""',        
         
     ],
-    require => User["$apache_user"],
+    #require => User["$apache_user"],
 }
 
 # Better than sudoers...
