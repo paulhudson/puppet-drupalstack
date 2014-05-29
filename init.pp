@@ -103,12 +103,12 @@ augeas { 'sudoapache':
         'set spec[user = "%apache"]/user %apache',
         'set spec[user = "%apache"]/host_group/host ALL',
         'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/lib/vhost_deploy.sh',
-        #'set spec[user = "%$apache_user"]/host_group/command/tag NOPASSWD',
+        'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
-        #'set Defaults[type=":$apache_user"]/type :$apache_user',
-        #'set Defaults[type=":$apache_user"]/requiretty/negate ""',
-        #'set Defaults[type=":$apache_user"]/visiblepw/negate ""',        
+        'set Defaults[type=":apache"]/type :apache',
+        'set Defaults[type=":apache"]/requiretty/negate ""',
+        'set Defaults[type=":apache"]/visiblepw/negate ""',        
         
     ],
     #require => User["$apache_user"],
