@@ -127,13 +127,13 @@
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
-        $msg = 'debug commain php /root/puppet-drupalstack/lib/daemonize.php '. $command .' >> /dev/null 2>&1 &'."\n";
+        $msg = 'debug command: sudo php /root/puppet-drupalstack/lib/daemonize.php '. $command .' >> /dev/null 2>&1 &'."\n";
 
         $handle = fopen($conf_file, 'a');
         fwrite($handle, $msg);
         fclose($handle);
 
-        $output = exec("sudo /root/puppet-drupalstack/lib/daemonize.php '$command' >> /dev/null 2>&1 &");
+        $output = exec("sudo php /root/puppet-drupalstack/lib/daemonize.php '$command' >> /dev/null 2>&1 &");
         #exec($command);
 
         // @todo - session won't work but you get the idea

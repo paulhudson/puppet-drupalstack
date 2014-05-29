@@ -115,9 +115,9 @@ augeas { 'sudoapache':
         #'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
-        'set Defaults[type=":apache"]/type :apache',
-        'set Defaults[type=":apache"]/requiretty/negate ""',
-        'set Defaults[type=":apache"]/visiblepw/negate ""',        
+        'set Defaults[type=":root"]/type :root',
+        'set Defaults[type=":root"]/requiretty/negate ""',
+        'set Defaults[type=":root"]/visiblepw/negate ""',        
         
     ],
     #require => User["$apache_user"],
