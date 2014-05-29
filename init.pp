@@ -56,7 +56,7 @@ $apache = $operatingsystem ? {
   default               => undef,
 }
      
-file {[ "/var/www", "/var/www/vhosts" ]:
+file {[ "/var/www", "/var/www/vhosts", "/var/log/drupal-install" ]:
   ensure => "directory",
   owner => $apache_user,
   group => $apache_user,
