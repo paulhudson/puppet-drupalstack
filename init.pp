@@ -135,12 +135,14 @@ file { "/var/www/html/index.php":
     owner  => $apache_user,
     group  => $apache_user,
     source => "/root/puppet-drupalstack/files/drupal-install/index.php",
+    require => User["$apache_user"],
 }
 file { "/var/www/html/global.css":
     mode   => 644,
     owner  => $apache_user,
     group  => $apache_user,
     source => "/root/puppet-drupalstack/files/drupal-install/global.css",
+    require => User["$apache_user"],
 }
 
 
