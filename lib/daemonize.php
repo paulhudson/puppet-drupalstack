@@ -76,5 +76,5 @@ if ($pid < 0) // error
         exit;
     }
 
-    exec("{$command} >> /dev/null 2>&1 &");
+    exec("$command >> /dev/null 2>&1 &");
 }
