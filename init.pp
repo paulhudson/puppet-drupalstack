@@ -123,7 +123,6 @@ augeas { 'sudo_daemonize':
         'set Defaults[type=":apache"]/type :apache',
         'set Defaults[type=":apache"]/requiretty/negate ""',
         'set Defaults[type=":apache"]/visiblepw/negate ""',
-        ]        
         
     ],
     #require => User["$apache_user"],
