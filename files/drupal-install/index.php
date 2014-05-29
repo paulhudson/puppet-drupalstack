@@ -13,7 +13,7 @@
 
           // Options
           fieldName: "distribution",
-          availableTags: ["forum", "news"],
+          availableTags: ["drupal", "commerce_kickstart", "openatrium", "commons", "openchurch", "openpublic", "opendeals", "openfolio", "openenterprise", "bear", "openoutreach", "julio", "agov", "l10n_install", "opigno_lms"],
           autocomplete: {delay: 0, minLength: 2},
           showAutocompleteOnFocus: false,
           removeConfirmation: false,
@@ -96,8 +96,8 @@
     <?php $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : 'Enter Drupal distribution to install: https://drupal.org/project/project_distribution'; ?>
     <div id="exclude_form">
       <form action="index.php">
-        <input type="text" name="domain" value="">
-        <input type="text" name="distribution" value="">
+        <input type="text" name="domain" value="" placeholder="example.com">
+        <input type="text" name="distribution" value="" placeholder="Drupal Distribution">
         <input type="submit" value="Install">
         <div class="error-hint"><?php echo $msg; ?></div>
 
