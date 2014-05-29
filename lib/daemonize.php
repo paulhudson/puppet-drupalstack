@@ -30,7 +30,7 @@ if ($pid < 0) // error
 
     // Write to config
     $conf_file = '/var/log/drupal-install';
-    $msg = "fail 2 \n";
+    $msg = "fail: 2 pid: $pid\n";
 
     $handle = fopen($conf_file, 'a');
     fwrite($handle, $msg);
@@ -42,7 +42,7 @@ if ($pid < 0) // error
 
     // Write to config
     $conf_file = '/var/log/drupal-install';
-    $msg = "fail 3 \n";
+    $msg = "fail: 3 pid: $pid\n";
 
     $handle = fopen($conf_file, 'a');
     fwrite($handle, $msg);
@@ -54,7 +54,7 @@ if ($pid < 0) // error
 
     // Write to config
     $conf_file = '/var/log/drupal-install';
-    $msg = "pass 1 \n";
+    $msg = "pass: 1 pid: $pid\n";
 
     $handle = fopen($conf_file, 'a');
     fwrite($handle, $msg);
@@ -66,7 +66,7 @@ if ($pid < 0) // error
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
-        $msg = "fail 4 \n";
+        $msg = "fail: 4 pid: $pid\n";
 
         $handle = fopen($conf_file, 'a');
         fwrite($handle, $msg);
