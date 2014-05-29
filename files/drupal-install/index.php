@@ -126,7 +126,7 @@
         #$command = escapeshellarg("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution");
         $command = "'sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution'";
 
-        $exec = "sudo php /root/puppet-drupalstack/lib/daemonize.php $command >> /dev/null 2>&1 &";
+        $exec = "sudo php /root/puppet-drupalstack/lib/daemonize.php $command";
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
