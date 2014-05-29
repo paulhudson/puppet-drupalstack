@@ -1,5 +1,14 @@
 <?php
 
+$temp_command = isset($argv[1]) ? isset($argv[1]) : 'nada';
+// Write to config
+$conf_file = '/var/log/drupal-install';
+$msg = "running command: $temp_command \n";
+
+$handle = fopen($conf_file, 'a');
+fwrite($handle, $msg);
+fclose($handle);
+
 if (!isset($argv[1]))
 {
     exit;
@@ -13,13 +22,6 @@ else if ($pid) // parent
     exit;
 else // child
 {
-    // Write to config
-    $conf_file = '/var/log/drupal-install';
-    $msg = "running command: $command \n";
-
-    $handle = fopen($conf_file, 'a');
-    fwrite($handle, $msg);
-    fclose($handle);
 
     $sid = posix_setsid(); // creates a daemon
 
