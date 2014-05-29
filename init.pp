@@ -120,15 +120,15 @@ file { "/root/puppet-drupalstack/lib/vhost_deploy.sh":
 
 # vhost_deploy interfact
 file { "/var/www/html/index.php":
-    mode   => 440,
-    owner  => apache,
-    group  => apache,
+    mode   => 644,
+    owner  => $apache_user,
+    group  => $apache_user,
     source => "/root/puppet-drupalstack/files/drupal-install/index.php",
 }
 file { "/var/www/html/global.css":
-    mode   => 440,
-    owner  => apache,
-    group  => apache,
+    mode   => 644,
+    owner  => $apache_user,
+    group  => $apache_user,
     source => "/root/puppet-drupalstack/files/drupal-install/global.css",
 }
 
