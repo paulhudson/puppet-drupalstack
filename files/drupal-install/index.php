@@ -109,7 +109,7 @@
       if (isset($_GET['distribution']) && !empty($_GET['distribution'])) {
 
         // Purge cache
-        $domain = 'drupaul.co.uk';
+        $domain = $_GET['domain'];
 
         $distribution = escapeshellarg($_GET['distribution']);
 
