@@ -26,6 +26,7 @@ $command = $argv[1];
 
 $pid = pcntl_fork();
 if ($pid < 0) // error
+{
 
     // Write to config
     $conf_file = '/var/log/drupal-install';
@@ -36,7 +37,8 @@ if ($pid < 0) // error
     fclose($handle);
 
     exit;
-else if ($pid) // parent
+} else if ($pid) // parent
+{
 
     // Write to config
     $conf_file = '/var/log/drupal-install';
@@ -47,7 +49,7 @@ else if ($pid) // parent
     fclose($handle);
 
     exit;
-else // child
+} else // child
 {
 
     // Write to config
