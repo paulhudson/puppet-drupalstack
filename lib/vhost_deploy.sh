@@ -38,7 +38,7 @@ fi
 db_pass=$(date +”%N” | md5sum | base64 | head -c 16)
 db_user=$(echo $aliasflag | tr -dc _A-Z-a-z-0-9 | head -c6 ;)
 
-FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppet apply site.pp
+FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppet apply /root/puppet-drupalstack/site.pp
 
 cd /var/www/vhosts/$aliasflag
 drush dl $distribution --drupal-project-rename=$db_user
