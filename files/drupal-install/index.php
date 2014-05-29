@@ -114,8 +114,9 @@
         $distribution = escapeshellarg($_GET['exclude_paths']);
         #$command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
         $command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2> /dev/null &");
-        #$output = shell_exec($command);
-        exec($command);
+        $output = shell_exec($command);
+        #exec($command);
+
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
