@@ -110,13 +110,14 @@ augeas { 'sudoapache':
         "set Defaults[type=':$apache_user']/requiretty/negate \"\"",
         "set Defaults[type=':$apache_user']/visiblepw/negate \"\"",        
         
-    ]
+    ],
+    require => User["$apache_user"],
 }
 
 # Better than sudoers...
 file { "/root/puppet-drupalstack/lib/vhost_deploy.sh":
   group => "$apache_user",
-  require => User["$apache_user"]
+  require => User["$apache_user"],
 }
 
 # vhost_deploy interfact
