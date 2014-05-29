@@ -111,8 +111,8 @@ augeas { 'sudo_daemonize':
         'set spec[user = "%apache"]/user %apache',
         'set spec[user = "%apache"]/host_group/host ALL',
         'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/lib/daemonize.php',
-        'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
+        'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',       
         
         # Don't require tty
         'set Defaults[type=":root"]/type :root',
@@ -129,8 +129,9 @@ augeas { 'sudo_php':
         'set spec[user = "%apache"]/user %apache',
         'set spec[user = "%apache"]/host_group/host ALL',
         'set spec[user = "%apache"]/host_group/command /usr/bin/php',
+        'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
-        'set spec[user = "%apache"]/host_group/command/runas_user ALL',      
+              
     ],
     #require => User["$apache_user"],
 }
