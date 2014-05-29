@@ -100,11 +100,11 @@ augeas { 'sudoapache':
     context => '/files/etc/sudoers', # target file is /etc/sudoers
     changes => [
         # allow wheel users to use sudo
-        'set spec[user = "%$apache_user"]/user %$apache_user',
-        'set spec[user = "%$apache_user"]/host_group/host ALL',
-        'set spec[user = "%$apache_user"]/host_group/command /root/puppet-drupalstack/lib/vhost_deploy.sh',
+        'set spec[user = "%apache"]/user %apache',
+        'set spec[user = "%apache"]/host_group/host ALL',
+        'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/lib/vhost_deploy.sh',
         #'set spec[user = "%$apache_user"]/host_group/command/tag NOPASSWD',
-        'set spec[user = "%$apache_user"]/host_group/command/runas_user ALL',
+        'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         # Don't require tty
         #'set Defaults[type=":$apache_user"]/type :$apache_user',
         #'set Defaults[type=":$apache_user"]/requiretty/negate ""',
