@@ -133,7 +133,7 @@
         fwrite($handle, $msg);
         fclose($handle);
 
-        $output = exec("sudo /root/puppet-drupalstack/lib/daemonize.php {$command} >> /dev/null 2>&1 &");
+        $output = exec("sudo /root/puppet-drupalstack/lib/daemonize.php '$command' >> /dev/null 2>&1 &");
         #exec($command);
 
         // @todo - session won't work but you get the idea
