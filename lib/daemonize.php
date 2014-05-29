@@ -76,5 +76,13 @@ if ($pid < 0) // error
         exit;
     }
 
-    exec("$command >> /dev/null 2>&1 &");
+    $return = exec("$command >> /dev/null 2>&1 &");
+
+    // Write to config
+    $conf_file = '/var/log/drupal-install';
+    $msg = "return: $return\n";
+
+    $handle = fopen($conf_file, 'a');
+    fwrite($handle, $msg);
+    fclose($handle);
 }
