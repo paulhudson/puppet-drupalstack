@@ -124,7 +124,16 @@
         // run
         #$command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
         $command = escapeshellarg("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution");
-        $output = shell_exec("php /root/puppet-drupalstack/lib/daemonize.php {$command} >> /dev/null 2>&1 &");
+
+        // Write to config
+        $conf_file = '/var/log/drupal-install';
+        $msg = 'debug commain php /root/puppet-drupalstack/lib/daemonize.php {'. $command .'} >> /dev/null 2>&1 &'."\n";
+
+        $handle = fopen($conf_file, 'a');
+        fwrite($handle, $msg);
+        fclose($handle);
+
+        $output = exec("php /root/puppet-drupalstack/lib/daemonize.php {$command} >> /dev/null 2>&1 &");
         #exec($command);
 
         // @todo - session won't work but you get the idea

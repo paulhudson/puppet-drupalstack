@@ -4,7 +4,7 @@ class { 'atomic': }
 # PHP
 class { 'php': }
 
-package { ['ImageMagick', 'php-pecl-memcached', 'memcached', 'php-pecl-apc' ]:
+package { ['ImageMagick', 'php-pecl-memcached', 'memcached', 'php-pecl-apc', 'php-process' ]:
   ensure => 'installed',
 }
 
