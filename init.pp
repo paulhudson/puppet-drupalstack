@@ -117,7 +117,13 @@ augeas { 'sudo_daemonize':
         # Don't require tty
         'set Defaults[type=":root"]/type :root',
         'set Defaults[type=":root"]/requiretty/negate ""',
-        'set Defaults[type=":root"]/visiblepw/negate ""',        
+        'set Defaults[type=":root"]/visiblepw/negate ""',
+        
+        # Don't require tty
+        'set Defaults[type=":apache"]/type :apache',
+        'set Defaults[type=":apache"]/requiretty/negate ""',
+        'set Defaults[type=":apache"]/visiblepw/negate ""',
+        ]        
         
     ],
     #require => User["$apache_user"],
