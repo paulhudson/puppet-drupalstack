@@ -1,6 +1,6 @@
 <?php
 
-$temp_command = isset($argv[1]) ? isset($argv[1]) : 'nada';
+$temp_command = isset($argv[1]) ? $argv[1] : 'nada';
 // Write to config
 $conf_file = '/var/log/drupal-install';
 $msg = "running command: $temp_command \n";
@@ -59,7 +59,7 @@ if ($pid < 0) // error
     $handle = fopen($conf_file, 'a');
     fwrite($handle, $msg);
     fclose($handle);
-    
+
     $sid = posix_setsid(); // creates a daemon
 
     if ($sid < 0)
