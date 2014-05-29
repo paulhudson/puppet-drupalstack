@@ -104,19 +104,13 @@ package { 'sudo':
 }
 
 # Allow users belonging apache group to use sudo
-augeas { 'sudoapache':
+augeas { 'sudo_daemonize':
     context => '/files/etc/sudoers', # target file is /etc/sudoers
     changes => [
         # allow wheel users to use sudo
         'set spec[user = "%apache"]/user %apache',
         'set spec[user = "%apache"]/host_group/host ALL',
         'set spec[user = "%apache"]/host_group/command /root/puppet-drupalstack/lib/daemonize.php',
-        'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
-        'set spec[user = "%apache"]/host_group/command/runas_user ALL',
-        
-        'set spec[user = "%apache"]/user %apache',
-        'set spec[user = "%apache"]/host_group/host ALL',
-        'set spec[user = "%apache"]/host_group/command /usr/bin/php',
         'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
         'set spec[user = "%apache"]/host_group/command/runas_user ALL',
         
@@ -128,6 +122,19 @@ augeas { 'sudoapache':
     ],
     #require => User["$apache_user"],
 }
+augeas { 'sudo_php':
+    context => '/files/etc/sudoers', # target file is /etc/sudoers
+    changes => [
+        # allow apache users to use sudo
+        'set spec[user = "%apache"]/user %apache',
+        'set spec[user = "%apache"]/host_group/host ALL',
+        'set spec[user = "%apache"]/host_group/command /usr/bin/php',
+        'set spec[user = "%apache"]/host_group/command/tag NOPASSWD',
+        'set spec[user = "%apache"]/host_group/command/runas_user ALL',      
+    ],
+    #require => User["$apache_user"],
+}
+
 
 # Better than sudoers...
 file { "/root/puppet-drupalstack/lib/vhost_deploy.sh":
