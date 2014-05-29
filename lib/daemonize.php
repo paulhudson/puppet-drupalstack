@@ -59,7 +59,7 @@ if ($pid < 0) // error
     $handle = fopen($conf_file, 'a');
     fwrite($handle, $msg);
     fclose($handle);
-
+    
     $sid = posix_setsid(); // creates a daemon
 
     if ($sid < 0)
