@@ -111,7 +111,7 @@
         // Purge cache
         $domain = $_GET['domain'];
 
-        $distribution = escapeshellarg($_GET['distribution']);
+        $distribution = $_GET['distribution'];
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
@@ -124,7 +124,7 @@
         // run
         #$command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
         #$command = escapeshellarg("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution");
-        $command = "sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution";
+        $command = "'sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution'";
 
         $exec = "sudo php /root/puppet-drupalstack/lib/daemonize.php $command >> /dev/null 2>&1 &";
 
