@@ -63,6 +63,7 @@ if ($pid < 0) // error
     $sid = posix_setsid(); // creates a daemon
 
     if ($sid < 0)
+    {
 
         // Write to config
         $conf_file = '/var/log/drupal-install';
@@ -73,6 +74,7 @@ if ($pid < 0) // error
         fclose($handle);
 
         exit;
+    }
 
     exec("{$command} >> /dev/null 2>&1 &");
 }
