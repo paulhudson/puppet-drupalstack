@@ -26,7 +26,7 @@
           singleFieldDelimiter: ',',
           singleFieldNode: null,
           tabIndex: null,
-          placeholderText: null,
+          placeholderText: 'Drupal Distribution',
 
           // Events
           beforeTagAdded: function(event, ui) {
@@ -66,7 +66,7 @@
           singleFieldDelimiter: ',',
           singleFieldNode: null,
           tabIndex: null,
-          placeholderText: null,
+          placeholderText: 'example.com',
 
           // Events
           beforeTagAdded: function(event, ui) {
@@ -112,7 +112,8 @@
         $domain = 'drupaul.co.uk';
 
         $distribution = escapeshellarg($_GET['exclude_paths']);
-        $command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
+        #$command = escapeshellcmd("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>/dev/null &");
+        $command = exec("sudo /root/puppet-drupalstack/lib/vhost_deploy.sh -a $domain -d $distribution > /dev/null 2>&1 &");
         $output = shell_exec($command);
 
         // Write to config
