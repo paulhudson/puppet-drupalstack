@@ -56,11 +56,19 @@ $apache = $operatingsystem ? {
   default               => undef,
 }
      
-file {[ "/var/www", "/var/www/vhosts", "/var/log/drupal-install" ]:
+file {[ "/var/www", "/var/www/vhosts" ]:
   ensure => "directory",
   owner => $apache_user,
   group => $apache_user,
   mode => 750,
+  require => Package[$apache],
+}
+
+file {[ "/var/log/drupal-install" ]:
+  ensure => "present",
+  owner => $apache_user,
+  group => $apache_user,
+  mode => 755,
   require => Package[$apache],
 }
 
