@@ -108,11 +108,11 @@ augeas { 'sudo_daemonize':
     context => '/files/etc/sudoers', # target file is /etc/sudoers
     changes => [
         # allow wheel users to use sudo
-        'set spec[1user = "%apache"]/user %apache',
-        'set spec[1user = "%apache"]/host_group/host ALL',
-        'set spec[1user = "%apache"]/host_group/command /root/puppet-drupalstack/lib/daemonize.php',
-        'set spec[1user = "%apache"]/host_group/command/runas_user ALL',
-        'set spec[1user = "%apache"]/host_group/command/tag NOPASSWD',       
+        'set spec[last() + 1]/user %apache',
+        'set spec[last()]/host_group/host ALL',
+        'set spec[last()]/host_group/command /root/puppet-drupalstack/lib/daemonize.php',
+        'set spec[last()]/host_group/command/runas_user ALL',
+        'set spec[last()]/host_group/command/tag NOPASSWD',       
         
         # Don't require tty
         'set Defaults[type=":root"]/type :root',
@@ -126,11 +126,11 @@ augeas { 'sudo_php':
     context => '/files/etc/sudoers', # target file is /etc/sudoers
     changes => [
         # allow apache users to use sudo
-        'set spec[2user = "%apache"]/user %apache',
-        'set spec[2user = "%apache"]/host_group/host ALL',
-        'set spec[2user = "%apache"]/host_group/command /usr/bin/php',
-        'set spec[2user = "%apache"]/host_group/command/runas_user ALL',
-        'set spec[2user = "%apache"]/host_group/command/tag NOPASSWD',
+        'set spec[last() + 1]/user %apache',
+        'set spec[last()]/host_group/host ALL',
+        'set spec[last()]/host_group/command /usr/bin/php',
+        'set spec[last()]/host_group/command/runas_user ALL',
+        'set spec[last()]/host_group/command/tag NOPASSWD',
               
     ],
     #require => User["$apache_user"],
