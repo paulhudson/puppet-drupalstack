@@ -48,6 +48,9 @@ chown -R apache:apache ./$db_user
 mv ./$db_user/* ./
 mv ./$db_user/.* ./
 rm -rf ./$db_user
+
+sleep 5
+
 drush site-install $distribution --db-url=mysql://$db_user:$db_pass@localhost/$db_user --site-name=$aliasflag -y
 
 
