@@ -40,6 +40,8 @@ db_user=$(echo $aliasflag | tr -dc _A-Z-a-z-0-9 | head -c6 ;)
 
 FACTER_sitename=$aliasflag FACTER_db_user=$db_user FACTER_db_pass=$db_pass puppet apply /root/puppet-drupalstack/site.pp
 
+sleep 7
+
 cd /var/www/vhosts/$aliasflag
 drush dl $distribution --drupal-project-rename=$db_user
 chown -R apache:apache ./$db_user
