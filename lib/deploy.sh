@@ -33,7 +33,7 @@ fi
 # Install Ruby
 curl -L get.rvm.io | bash -s stable
 #source /usr/local/rvm/rvm.sh
-#yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
 #rvm install 1.9.3
 #rvm use 1.9.3 --default
 
