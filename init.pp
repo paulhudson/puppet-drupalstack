@@ -72,14 +72,14 @@ file {[ "/var/log/drupal-install" ]:
   require => Package[$apache],
 }
 
-#apache::vhost { 'drupal.test':
-#  port          => '80',
-#  docroot       => '/var/www/vhosts/drupal.test',
-#  docroot_owner => $apache_user,
-#  docroot_group => $apache_user,
-#  options => ['-Indexes','+FollowSymLinks'],
-#  override => ['All'],
-#}
+apache::vhost { 'mysite.com':
+  port          => '8080',
+  docroot       => '/var/www/vhosts/mysite.com',
+  docroot_owner => $apache_user,
+  docroot_group => $apache_user,
+  options => ['-Indexes','+FollowSymLinks'],
+  override => ['All'],
+}
 
 # Pear
 class { 'pear': }

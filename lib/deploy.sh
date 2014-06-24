@@ -31,20 +31,24 @@ echo 'git found.'
 fi
 
 # Install Ruby
-curl -L get.rvm.io | bash -s stable
+#curl -L get.rvm.io | bash -s stable
 #source /usr/local/rvm/rvm.sh
-yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+#yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
 #rvm install 1.9.3
 #rvm use 1.9.3 --default
 
-cd /root/
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.gz
+#wget -O ./rvm.sh --no-check-certificate get.rvm.io
 
-tar xvzf ruby-1.9.3-p194.tar.gz
-cd ruby-1.9.3-p194
-./configure
-make
-make install
+curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+
+#cd /root/
+#wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.gz
+
+#tar xvzf ruby-1.9.3-p194.tar.gz
+#cd ruby-1.9.3-p194
+#./configure
+#make
+#make install
 
 if [ ! -d "$PUPPET_DIR" ]; then
 mkdir -p $PUPPET_DIR
