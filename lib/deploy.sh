@@ -17,11 +17,11 @@ echo 'Attempting to install git.'
 
 if [ "${FOUND_YUM}" -eq '0' ]; then
 yum -q -y makecache
-yum install git ruby -y
+yum install git curl -y
 echo 'git installed.'
 elif [ "${FOUND_APT}" -eq '0' ]; then
 apt-get -q -y update
-apt-get -q -y install git ruby
+apt-get -q -y install git curl
 echo 'git installed.'
 else
 echo 'No package installer available. You may need to install git manually.'
@@ -29,6 +29,13 @@ fi
 else
 echo 'git found.'
 fi
+
+# Install Ruby
+curl -L get.rvm.io | bash -s stable
+source /usr/local/rvm/rvm.sh
+rvmsudo yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+rvm install 1.9.3
+rvm use 1.9.3 --default
 
 if [ ! -d "$PUPPET_DIR" ]; then
 mkdir -p $PUPPET_DIR
