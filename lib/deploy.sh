@@ -39,7 +39,7 @@ fi
 
 #wget -O ./rvm.sh --no-check-certificate get.rvm.io
 
-curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+#curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
 
 #cd /root/
 #wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.gz
