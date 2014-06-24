@@ -104,6 +104,7 @@ package { 'sudo':
 }
 
 # Allow users belonging apache group to use sudo
+/*
 augeas { 'sudo_daemonize':
     context => '/files/etc/sudoers', # target file is /etc/sudoers
     changes => [
@@ -163,7 +164,7 @@ file { "/var/www/html/global.css":
     source => "/root/puppet-drupalstack/files/drupal-install/global.css",
     require => User["$apache_user"],
 }
-
+*/
 
 # Drupal
 /*
