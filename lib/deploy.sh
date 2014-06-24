@@ -17,11 +17,11 @@ echo 'Attempting to install git.'
 
 if [ "${FOUND_YUM}" -eq '0' ]; then
 yum -q -y makecache
-yum -q -y install git
+yum install git ruby -y
 echo 'git installed.'
 elif [ "${FOUND_APT}" -eq '0' ]; then
 apt-get -q -y update
-apt-get -q -y install git
+apt-get -q -y install git ruby
 echo 'git installed.'
 else
 echo 'No package installer available. You may need to install git manually.'
@@ -46,7 +46,7 @@ echo 'added puppet yum repo.'
 
 # Install Puppet:
 #sudo yum install puppet-server
-yum -q -y install puppet
+yum install puppet -y
 
 elif [ "${FOUND_APT}" -eq '0' ]; then
 
